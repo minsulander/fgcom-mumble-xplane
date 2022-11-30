@@ -11,14 +11,7 @@
 
 UDPSender::UDPSender()
 {
-    // wtf this just makes x-plane crash with "invalid argument"
-    // : resolver(io_context), endpoint(*resolver.resolve(udp::v4(), "localhost", "16661").begin()), socket(io_context) {
-    // asio::io_context* io_context = new asio::io_context();
-    // udp::resolver resolver(io_context);
-    // udp::endpoint endpoint = *resolver.resolve(udp::v4(), "localhost", "16661").begin();
-    // udp::socket socket(io_context);
-    // socket.open(udp::v4());
-    // socket.send_to(asio::buffer("hello world\n"), endpoint);
+    sockpp::socket_initializer sockinit;
 }
 
 void UDPSender::send()
@@ -38,6 +31,6 @@ void UDPSender::send()
        << ",DEBUG_SIGQLY=-1.0,AUDIO_FX_RADIO=1,AUDIO_HEAR_ALL=0"
        << "\n";
     auto str = ss.str();
-    XPLMDebugString(str.c_str());
-    sock.sendTo(str.c_str(), str.size(), "localhost", 16661);
+    // XPLMDebugString(str.c_str());
+    socket.send_to(str, sockpp::inet_address("localhost", 16661));
 }
