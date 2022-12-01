@@ -16,6 +16,7 @@ set(SOURCES
 
 add_subdirectory(xplane_sdk/)
 add_xplane_plugin(fgcom-mumble 301 ${SOURCES})
+add_dependencies(fgcom-mumble sockpp-static)
 target_link_libraries(fgcom-mumble sockpp)
 
 # add_executable(test_sockpp_udp test/test_sockpp_udp.cpp)
