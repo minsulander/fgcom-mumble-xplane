@@ -1,13 +1,7 @@
 #include "udpsender.h"
-
-// #include <asio/io_context.hpp>
-// using asio::ip::udp;
-
-#include "PracticalSocket.h"
 #include "XPLMUtilities.h"
-#include <sstream>
-
 #include "datarefs.h"
+#include <sstream>
 
 UDPSender::UDPSender()
 {
@@ -18,6 +12,8 @@ void UDPSender::send()
 {
     int comsel = XPLMGetDatai(drefComSelection);
     std::ostringstream ss;
+    ss.setf(std::ios::fixed);
+    ss.precision(3);
     ss << "CALLSIGN=XPL001,LAT=" << XPLMGetDatad(drefLatitude)
        << ",LON=" << XPLMGetDatad(drefLongitude) << ",HGT=" << (XPLMGetDataf(drefHeight) * 3.28084)
        << ",COM1_PTT=" << ((ptt && comsel == 6) ? 1 : 0)
