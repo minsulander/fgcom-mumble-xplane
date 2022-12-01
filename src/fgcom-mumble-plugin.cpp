@@ -1,3 +1,7 @@
+#ifdef WIN32
+#  define _WINSOCKAPI_
+#endif
+
 #include "XPLMPlugin.h"
 #include "XPLMProcessing.h"
 #include "XPLMUtilities.h"
