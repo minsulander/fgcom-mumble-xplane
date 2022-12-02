@@ -54,9 +54,9 @@ jobs:
       shell: bash
       run: |
         mkdir -p fgcom-mumble/win_x64 fgcom-mumble/mac_x64 fgcom-mumble/lin_x64
-        cp Release/*Windows.xpl fgcom-mumble/win_x64/fgcom-mumble.xpl
-        cp *Darwin.xpl fgcom-mumble/mac_x64/fgcom-mumble.xpl
-        cp *Linux.xpl fgcom-mumble/lin_x64/fgcom-mumble.xpl
+        cp build/Release/*Windows.xpl fgcom-mumble/win_x64/fgcom-mumble.xpl
+        cp build/*Darwin.xpl fgcom-mumble/mac_x64/fgcom-mumble.xpl
+        cp build/*Linux.xpl fgcom-mumble/lin_x64/fgcom-mumble.xpl
         zip -r fgcom-mumble-xplane.zip fgcom-mumble
     - name: Upload artifact
       uses: actions/upload-artifact@v3
