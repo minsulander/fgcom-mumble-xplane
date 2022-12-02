@@ -66,6 +66,7 @@ jobs:
 
   pre-release:
     name: "Pre Release"
+    needs: package
     runs-on: "ubuntu-latest"
 
     steps:
