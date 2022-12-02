@@ -12,5 +12,5 @@ fi
 echo "Deploying to $xplane"
 
 mkdir -p "$xplane/Resources/plugins/fgcom-mumble/lin_x64"
-cp build/fgcom-mumble.xpl "$xplane/Resources/plugins/fgcom-mumble/lin_x64/"
+cp build/fgcom-mumble-Linux.xpl "$xplane/Resources/plugins/fgcom-mumble/lin_x64/fgcom-mumble.xpl"
 ls -lh "$xplane/Resources/plugins/fgcom-mumble/lin_x64/"

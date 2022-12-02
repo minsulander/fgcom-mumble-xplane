@@ -37,7 +37,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
-        name: plugin
+        name: build
         path: "**/fgcom-mumble*.xpl"
         retention-days: 1
 
@@ -49,17 +49,17 @@ jobs:
     - name: Download artifacts
       uses: actions/download-artifact@v3
       with:
-        name: plugin
+        name: build
     - name: Move files around
       shell: bash
       run: |
         mkdir -p fgcom-mumble/win_x64 fgcom-mumble/mac_x64 fgcom-mumble/lin_x64
-        cp *Windows.xpl fgcom-mumble/win_x64/fgcom-mumble.xpl
+        cp Release/*Windows.xpl fgcom-mumble/win_x64/fgcom-mumble.xpl
         cp *Darwin.xpl fgcom-mumble/mac_x64/fgcom-mumble.xpl
         cp *Linux.xpl fgcom-mumble/lin_x64/fgcom-mumble.xpl
         zip -r fgcom-mumble-xplane.zip fgcom-mumble
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
-        name: plugin
+        name: package
         path: fgcom-mumble-xplane.zip
