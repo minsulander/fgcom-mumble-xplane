@@ -38,6 +38,8 @@ if(WIN32)
 else()
   target_link_libraries(fgcom-mumble PRIVATE sockpp)
 endif()
+set_target_properties(fgcom-mumble PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}")
+set_target_properties(fgcom-mumble PROPERTIES OUTPUT_NAME "fgcom-mumble-${CMAKE_SYSTEM_NAME}.xpl")
 
 # add_executable(test_sockpp_udp test/test_sockpp_udp.cpp)
 # target_link_libraries(test_sockpp_udp sockpp)
